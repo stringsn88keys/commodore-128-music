@@ -1,4 +1,8 @@
 10 rem minuet - henry purcell
+11 scnclr: for i=1 to 10: ? : next i
+12 print tab(17);"minuet"
+13 ?: print tab(13);"henry purcell"
+14 sleep 1
 20 tempo 8
 30 play "u3v1o3h.av2o4cv3ia#gabqa"
 40 play "v1o3h.gv2bv3o4qbbe"
@@ -20,3 +24,4 @@
 200 play "v1o3hgv2qrv3o4bv2dv3bv1o3hav3o4qe"
 210 play "v2cv3av1ho3ev2qrv3o4bv2o3bv3o4#gm"
 220 play "u2v2h.o3av3o4av1qro2ha"
+230 sleep 5
