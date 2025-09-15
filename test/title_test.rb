@@ -8,10 +8,11 @@ class TitleTest < Minitest::Test
     title.composer = "Johann Sebastian Bach"
     title.title = "Air on a G String"
 
-    output=title.render
+    output=title.render.grep_v(/^rem/) # ignore remark lines
     assert(output.grep(/scnclr/))
-    composer=output.grep(/Johann/)[0]
-    assert_match(composer, /tab/)
-    title=output.grep(/Air/)[0]
+    composer=output.grep(/Johann/i)[0]
+    assert_match(/tab\(10\)/, composer)
+    title=output.grep(/Air/i)[0]
+    assert_match(/tab\(12\)/, title)
   end
 end
