@@ -1,6 +1,7 @@
 require "config"
+require "command"
 
-class Title
+class Title < Command
   attr_accessor :composer, :title
 
   def y_offset
@@ -15,9 +16,13 @@ class Title
     lines=[]
     lines<<"rem #{title.downcase} - #{composer.downcase}"
     lines<<"scnclr"
-    lines<<"for i=1 to #{y_offset}: ? : next i"
+    lines<<"for i=1 to #{y_offset}:?:next i"
     lines<<"print tab(#{x_offset(title)});\"#{title.downcase}\""
     lines<<"print"
     lines<<"print tab(#{x_offset(composer)});\"#{composer.downcase}\""
+  end
+
+  def self.commands
+    %w(composer title)
   end
 end

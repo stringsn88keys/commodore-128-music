@@ -6,7 +6,6 @@ task default: "test"
 desc "Run tests"
 task :test do
   Rake::TestTask.new do |task|
-    require "minitest/autorun"
     task.pattern = "test/*_test.rb"
   end
 end
