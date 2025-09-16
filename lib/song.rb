@@ -1,13 +1,13 @@
 require "title"
 require "tempo"
+require "dynamic"
 
 class Song
-  DYNAMICS=%i[pppp ppp pp p mp mf f ff fff ffff]
-
   def initialize(file=nil)
     return unless file
 
     @song_filename=file
+    @playables=[]
 
     File.read(file).each_line do |song_line|
       evaluate(song_line)
@@ -26,6 +26,8 @@ class Song
       @title_block.dispatch(song_line)
     when Tempo.command_regex
       @tempo = Tempo.new(song_line)
+    when Dynamic.command_regex
+      @playables<<Dynamic.new(song_line)
     end
   end
 
